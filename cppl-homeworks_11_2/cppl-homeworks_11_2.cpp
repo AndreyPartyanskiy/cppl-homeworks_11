@@ -16,21 +16,20 @@ big_integer (std::string in_str_):str_(in_str_)
 
 big_integer (big_integer&& other) 
 {
-    
-    str_ = other.str_;
-    data_ = other.data_;
-    std::vector <int>().swap(other.data_);
-
+    str_ = std::move(other.str_);
+    data_ = std::move(other.data_);
 }
 
 big_integer& operator= (big_integer&& other) 
 {
     if (this == &other) 
         return *this;
-    std::vector <int> ().swap(data_);
-    data_=other.data_;
-    str_=other.str_;
-    std::vector <int>(). swap(other.data_);
+    str_ = std::move(other.str_);
+    data_ = std::move(other.data_);
+    // std::vector <int> ().swap(data_);
+    // data_=other.data_;
+    // str_=other.str_;
+    // std::vector <int>(). swap(other.data_);
     return *this;
 }
 
